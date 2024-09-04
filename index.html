@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <form id="login-form">
+            <h1 class="title">Accesa a tu cuenta</h1>
+            <label for="username">
+                <box-icon name='user' class="icons" type="solid"></box-icon>
+                <input type="text" id="username" placeholder="Ingresa tu nombre de usuario" required>
+            </label>
+            <label for="password">
+                <box-icon name='lock-alt' class="icons" type="solid"></box-icon>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+            </label>
+            <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+            <button type="button" onclick="validatePassword()">Ingresar</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

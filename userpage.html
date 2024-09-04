@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página del Usuario</title>
+    <link rel="stylesheet" href="atmstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="atm-container"> 
+        <h1>Bienvenidx a tu banca en línea, <span id="username"></span></h1>
+        <p>¿Qué operación deseas realizar hoy?</p>
+        <div id="operation" class="hidden">
+            <button onclick="checkBalance()">Consultar saldo</button>
+            <button onclick="depositMoney()">Ingresar monto</button>
+            <button onclick="withdrawMoney()">Retirar monto</button>
+        </div>
+        <div id="result-box" class="hidden">
+            <p id="result-message"></p>
+            <button onclick="resetATM()">Salir</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

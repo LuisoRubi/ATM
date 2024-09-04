@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* background: linear-gradient(to left, #ff5733, #ff4017); */
+    background-image: url(img/op1.jpg);
+    background-size: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;   
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-shadow: 0 5px 10px #4b1003;
+    position: relative; /* Importante para el pseudo-elemento */
+    z-index: 1;
+}
+
+form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background-image: url(img/img3.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: drop-shadow(10px 10px 10px #000) grayscale(80%) opacity(5);
+    z-index: -1; /* Coloca la imagen detrás del contenido del form */
+}
+
+form .title{
+    color: #000000;
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+form label{
+    margin-bottom: 35px;
+}
+
+.icons {
+    font-size: 10px;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    margin-top: 8px;
+}
+
+form label input{
+    padding: 0 20px;
+    font-size: 15px;
+    margin-bottom: 1px;
+}
+
+form a{
+    margin-bottom: 13px;
+    font-size: 18px;
+}
+
+
+/* CSS ATM PAGE */
+
