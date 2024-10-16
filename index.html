@@ -12,20 +12,25 @@
 </head>
 <body>
     <div class="login-container">
-        <form id="login-form">
+        <!-- Añadimos onsubmit="return false;" para evitar el reload automático -->
+        <form id="login-form" onsubmit="return false;">
             <h1 class="title">Accesa a tu cuenta</h1>
             <label for="username">
                 <box-icon name='user' class="icons" type="solid"></box-icon>
-                <input type="text" id="username" placeholder="Ingresa tu nombre de usuario" required>
+                <input type="text" id="username" placeholder="Ingresa tu usuario" required>
             </label>
-            <label for="password">
+            <label for="nip">
                 <box-icon name='lock-alt' class="icons" type="solid"></box-icon>
-                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+                <!-- Cambiamos el id a nip, ya que ahora trabajamos con el NIP -->
+                <input type="password" id="nip" maxlength="4" pattern="\d{4}" placeholder="Ingrese su NIP" required>
             </label>
-            <a href="#" class="link">¿Olvidaste tu contraseña?</a>
-            <button type="button" onclick="validatePassword()">Ingresar</button>
+            <!-- Botón para validar el NIP -->
+            <button type="button" onclick="validateNip()">Ingresar al cajero</button>
+            <!-- Botón para cambiar el NIP -->
+            <button type="button" onclick="cambiarNip()">Cambiar NIP</button>
         </form>
     </div>
     <script src="app.js"></script>
 </body>
 </html>
+

@@ -1,23 +1,27 @@
 var usuarios = [
-    { nombre: "Mali", saldo: 200, password: "1234" },
-    { nombre: "Gera", saldo: 290, password: "5678" },
-    { nombre: "Maui", saldo: 67, password: "9012" },
-    { nombre: "Enrique", saldo: 500, password: "9876" },
-    { nombre: "Paty", saldo: 458, password: "5432" },
+    { nombre: "Saul", saldo: 200, nip: "1234" },
+    { nombre: "Luis", saldo: 290, nip: "5678" },
 ];
 
-function validatePassword() {
+// Función para validar NIP
+function validateNip() {
     var usernameInput = document.getElementById("username").value;
-    var passwordInput = document.getElementById("password").value;
+    var nipInput = document.getElementById("nip").value;
 
     var usuario = usuarios.find(u => u.nombre.toLowerCase() === usernameInput.toLowerCase());
 
-    if (usuario && usuario.password === passwordInput) {
+    if (usuario && esNipValido(nipInput) && usuario.nip === nipInput) {
         sessionStorage.setItem("currentUser", usuario.nombre);
         window.location.href = "userpage.html";
     } else {
-        alert("Usuario o contraseña incorrectos, intenta nuevamente.");
+        alert("Usuario o NIP incorrectos, intenta nuevamente.");
     }
+}
+
+// Función para validar que el NIP sea un número de 4 dígitos
+function esNipValido(nip) {
+    const regex = /^\d{4}$/;  // Asegura que sean exactamente 4 dígitos numéricos
+    return regex.test(nip);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -90,4 +94,29 @@ function withdrawMoney() {
 function resetATM() {
     sessionStorage.removeItem("currentUser");
     window.location.href = "index.html";
+}
+
+// Función para cambiar el NIP
+function cambiarNip() {
+    var usuario = getCurrentUser();
+    if (!usuario) {
+        alert("Error: no se encontró el usuario.");
+        return;
+    }
+
+    var nipActual = prompt("Ingrese su NIP actual:");
+    
+    if (esNipValido(nipActual) && usuario.nip === nipActual) {
+        var nuevoNip = prompt("Ingrese su nuevo NIP (4 dígitos):");
+        var confirmarNuevoNip = prompt("Confirme su nuevo NIP:");
+        
+        if (esNipValido(nuevoNip) && nuevoNip === confirmarNuevoNip) {
+            usuario.nip = nuevoNip;
+            alert("NIP cambiado exitosamente.");
+        } else {
+            alert("Los NIP no coinciden o no son válidos.");
+        }
+    } else {
+        alert("El NIP actual es incorrecto.");
+    }
 }
