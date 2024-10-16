@@ -3,7 +3,6 @@ var usuarios = [
     { nombre: "Luis", saldo: 290, nip: "5678" },
 ];
 
-// Función para validar NIP
 function validateNip() {
     var usernameInput = document.getElementById("username").value;
     var nipInput = document.getElementById("nip").value;
@@ -18,9 +17,8 @@ function validateNip() {
     }
 }
 
-// Función para validar que el NIP sea un número de 4 dígitos
 function esNipValido(nip) {
-    const regex = /^\d{4}$/;  // Asegura que sean exactamente 4 dígitos numéricos
+    const regex = /^\d{4}$/;  
     return regex.test(nip);
 }
 
@@ -96,7 +94,6 @@ function resetATM() {
     window.location.href = "index.html";
 }
 
-// Función para cambiar el NIP
 function cambiarNip() {
     var usuario = getCurrentUser();
     if (!usuario) {
